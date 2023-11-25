@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<!-- saved from url=(0069)https://www.landpage-preview.com/d9b81288-863e-11ee-909f-629c8ab77aa2 -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta http-equiv="origin-trial" content="Az520Inasey3TAyqLyojQa8MnmCALSEU29yQFW8dePZ7xQTvSt73pHazLFTK5f7SyLUJSo2uKLesEtEa9aUYcgMAAACPeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZS5jb206NDQzIiwiZmVhdHVyZSI6IkRpc2FibGVUaGlyZFBhcnR5U3RvcmFnZVBhcnRpdGlvbmluZyIsImV4cGlyeSI6MTcyNTQwNzk5OSwiaXNTdWJkb21haW4iOnRydWUsImlzVGhpcmRQYXJ0eSI6dHJ1ZX0="><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="HandheldFriendly" content="true"><title></title><style>
+        .animated-lightbox {
+          transition: visibility 0.5s, opacity 0.5s;
+          visibility: hidden;
+          opacity: 0;
+        }
+    
+        .show-lightbox {
+          opacity: 1;
+          display: block !important;
+          visibility: visible;
+        }
+    </style><link rel="shortcut icon" href="https://s3-eu-west-1.amazonaws.com/landingi-editor-uploads/NINSPcKZ/icon.png" type="image/x-icon"><link rel="preconnect" href="https://styles.assets-landingi.com/"><link rel="preconnect" href="https://old.assets-landingi.com/"><link rel="preconnect" href="https://fonts.googleapis.com/"><link rel="preconnect" href="https://images.assets-landingi.com/"><link rel="preconnect" href="https://cdn.lugc.link/">
+<link rel="preload" fetchpriority="high" as="image" href="https://images.assets-landingi.com/1yw745hf/Group_4.jpg"><script type="text/javascript" async="" src="./d9b81288-863e-11ee-909f-629c8ab77aa2_files/recaptcha__pt_br.js.transferir" crossorigin="anonymous" integrity="sha384-cqfXrHNQ3U196DGElVR4dnG0gDAZuNOTcGt1e0HTcUrY1SD+ti2SI419rW0x2tjR"></script><script>
+const verifyRecaptchaOnSubmit = function (e) {
+  e.preventDefault();
+  showButtonSpinner($(this));
+  const recaptchaAction = 'landing_form_submit';
+  let that = this;
+  grecaptcha.execute('6LdKrHsjAAAAABdQ3WpMFH24cXPVkm1YA-KQWjW-', {action: recaptchaAction})
+    .then(function (token) {
+        $(that).parents('form').prepend('<input type="hidden" name="g-recaptchav3-token" value="' + token + '">');
+        hideButtonSpinner($(that));
+        $(that).unbind('click', verifyRecaptchaOnSubmit).click();
+      }
+    );
+}
+
+const showButtonSpinner = function (button) {
+  let overlay = button.find('.widget-overlay');
+  overlay.css('color', button.css('color'))
+    .append('<i class="fa fa-spinner fa-spin"></i>');
+  button.css('color', 'transparent');
+}
+
+const hideButtonSpinner = function (button) {
+  let overlay = button.find('.widget-overlay');
+  button.css('color', '');
+  overlay.empty();
+}
+
+const injectRecaptchaScript = function () {
+  if (window.isRecaptchaScriptInjected) {
+    return;
+  }
+  
+  window.isRecaptchaScriptInjected = true;
+  let recaptchaScriptTag = document.createElement("script");
+  recaptchaScriptTag.type = "text/javascript";
+  recaptchaScriptTag.src = "https://www.google.com/recaptcha/api.js?render=6LdKrHsjAAAAABdQ3WpMFH24cXPVkm1YA-KQWjW-";
+  $("head").append(recaptchaScriptTag);
+}
+
+function initRecaptchaOnFormSubmit(formSelector) {  
+  let forms = $(formSelector).filter(function () {
+    return $('.g-recaptcha', this).length === 0;
+  });
+
+  if (forms.length > 0) {
+    injectRecaptchaScript();
+    forms.each(function () {
+      $('button[type="submit"]', this).click(verifyRecaptchaOnSubmit);
+    });
+  }
+}
+
+function initRecaptchaOnEvent(event) {
+  event.currentTarget.removeEventListener(event.type, initRecaptchaOnEvent);
+    
+  if (window.isRecaptchaInitialized) {
+    return;
+  }
+
+  window.isRecaptchaInitialized = true;
+  initRecaptchaOnFormSubmit('.widget-section form, .widget-smartsection form');
+}
+
+function waitForJQuery(method) {
+    if (window.jQuery) {
+        method(); 
+    } else {
+        setTimeout(function() { waitForJQuery(method) }, 100);
+    }
+}
+
+waitForJQuery(function () {
+  $('head').on('lightboxes-ready', function () {
+    if (window.isRecaptchaInitialized && !window.isRecaptchaInitializedForLightboxes) {
+      window.isRecaptchaInitializedForLightboxes = true;
+      initRecaptchaOnFormSubmit('.landingi-popup form');
+    } /* no else here, selector ".widget-section form" will bind forms from lightboxes on event */
+  });
+
+  document.addEventListener('scroll', initRecaptchaOnEvent);
+  document.addEventListener('mousemove', initRecaptchaOnEvent);
+  document.addEventListener('touchstart', initRecaptchaOnEvent);
+});
+</script><style>
+.grecaptcha-badge {
+    width: 70px !important;
+    overflow: hidden !important;
+    transition: all 0.3s ease !important;
+    left: -7px !important;
+    bottom: 10px !important;
+    transform: scale(0.8) !important;
+    z-index: 1000000 !important;
+}
+.grecaptcha-badge:hover {
+    width: 256px !important;
+    left: -2px !important;
+    transform: scale(1) !important;
+}
+
+@media (max-width:764px) {
+    .grecaptcha-badge {
+        width: 62px !important;
+        height: 55px !important;
+        bottom: 1px !important;
+    }
+}
+</style><script fetchpriority="high">
+   (function(src, cb) {
+    var s = document.createElement('script'); s.setAttribute('src', src); s.setAttribute('fetchpriority', 'high');
+    s.onload = cb; (document.head || document.body).appendChild(s);
+  })('https://ucarecdn.com/libs/blinkloader/3.x/blinkloader.min.js', function() {
+    window.Blinkloader.optimize({
+      fadeIn:false,
+      lazyload:true,
+      smartCompression:true,
+      responsive:true,
+      retina:true,
+      webp:true,
+      pubkey:'ca6af56c901b93c58ffa',
+      cdnBase:'https://cdn.lugc.link'
+    });
+    
+    if (window.location !== window.parent.location) {
+        window.onload = function() {
+            setTimeout(function () {
+                window.dispatchEvent(new CustomEvent('scroll'))
+            }, 500);
+        };
+    }
+  })
+</script><script src="./d9b81288-863e-11ee-909f-629c8ab77aa2_files/blinkloader.min.js.transferir" fetchpriority="high"></script>
+
+<link href="./d9b81288-863e-11ee-909f-629c8ab77aa2_files/css" type="text/css" rel="stylesheet" as="style" fetchpriority="high" onload="this.onload=null;this.rel=&#39;stylesheet&#39;"><link href="./d9b81288-863e-11ee-909f-629c8ab77aa2_files/css(1)" type="text/css" rel="stylesheet" as="style" fetchpriority="high" onload="this.onload=null;this.rel=&#39;stylesheet&#39;"><link href="./d9b81288-863e-11ee-909f-629c8ab77aa2_files/css(2)" type="text/css" rel="stylesheet" as="style" fetchpriority="high" onload="this.onload=null;this.rel=&#39;stylesheet&#39;"><link href="./d9b81288-863e-11ee-909f-629c8ab77aa2_files/2.14-landend-base.css" type="text/css" rel="stylesheet" as="style" onload="this.onload=null;this.rel=&#39;stylesheet&#39;"><link href="./d9b81288-863e-11ee-909f-629c8ab77aa2_files/base.css" type="text/css" rel="stylesheet"><script>
+    var landingiInternalDetails = {
+        'landing_id': '1583695',
+        'landing_hash': '3660bbb0b7f101ba44ce',
+        'landing_variant_hash': '',
+        'landing_name': 'Linguu',
+        'landing_lang': 'en',
+        'account_uuid': '76bec700-85d8-11ee-a295-5e48a9c8420d',
+        'apikey': '579a5282-da0e-4b8a-ad5b-2ffa9fba6607'
+   }
+</script><script>
+(async function (w, d) {
+    try {
+        const response = await w.fetch(
+            'https://' + 'tagmanager.landingi.io' + '/account/' + '76bec700-85d8-11ee-a295-5e48a9c8420d'
+        );
+        const gtm = await response.json();
+
+        if (gtm) {
+            const script = d.head.getElementsByTagName('script')[0];
+            const tmpl = d.createElement('template');
+            tmpl.innerHTML = gtm;
+            tmpl.content.childNodes.forEach((node) => {
+                let elem = node;
+
+                if ('SCRIPT' === node.nodeName) {
+                    elem = d.createElement('script');
+
+                    if (node.textContent) {
+                        elem.textContent = node.textContent;
+                    }
+
+                    if (node.src) {
+                        elem.src = node.src;
+                        elem.type = node.type;
+                    }
+
+                    script.parentNode.insertBefore(elem, script);
+                }
+
+                if ('STYLE' === node.nodeName) {
+                    elem = d.createElement('style');
+
+                    if (node.textContent) {
+                        elem.textContent = node.textContent;
+                    }
+
+                    script.parentNode.insertBefore(elem, script);
+                }
+            })
+        }
+    } catch (err) {
+        console.log(err);
+    }
+})(window, document);
+</script><script>
+window.lazySizesConfig = window.lazySizesConfig || {};
+window.lazySizesConfig.init = false;
+</script>
+<script type="text/javascript" src="./d9b81288-863e-11ee-909f-629c8ab77aa2_files/lazysizes.min.js.transferir"></script>
+<script>
+lazySizes.init();
+</script><script defer="" fetchpriority="low" src="./d9b81288-863e-11ee-909f-629c8ab77aa2_files/install-code"></script><script defer="" fetchpriority="low" src="./d9b81288-863e-11ee-909f-629c8ab77aa2_files/lightbox-render.js.transferir"></script><script>
+window.addEventListener('load', function () {
+    LightboxRender.init({
+        useAaf: true
+    })
+});
+</script><style type="text/css">.vue-notification-group{display:block;position:fixed;z-index:5000}.vue-notification-wrapper{display:block;overflow:hidden;width:100%;margin:0;padding:0}.notification-title{font-weight:600}.vue-notification-template{background:#fff}.vue-notification,.vue-notification-template{display:block;box-sizing:border-box;text-align:left}.vue-notification{font-size:12px;padding:10px;margin:0 5px 5px;color:#fff;background:#44a4fc;border-left:5px solid #187fe7}.vue-notification.warn{background:#ffb648;border-left-color:#f48a06}.vue-notification.error{background:#e54d42;border-left-color:#b82e24}.vue-notification.success{background:#68cd86;border-left-color:#42a85f}.vn-fade-enter-active,.vn-fade-leave-active,.vn-fade-move{transition:all .5s}.vn-fade-enter,.vn-fade-leave-to{opacity:0}</style><script type="text/javascript" src="./d9b81288-863e-11ee-909f-629c8ab77aa2_files/api.js.transferir"></script></head><body id="Zcc579e32ab7c2c234c287cbcbc03f3a7639f9f1">
+<div id="VbAH1H7oOcTviNLA3T42vrV7SvyfEpGN" class="widget widget-section ">
+    <div class="row">
+        
+        <div class="container ">
+            
+            <div id="qWWkOQW6KZnowp4oTO4yNLQQ6rgcDe4J" class="widget widget-text"><p>Bem-vindo ao Linguu: Conectando línguas</p></div><div id="rzfqTTBoIrLlmkHsmX1SNCRV9MvmDF4R" class="widget widget-text"><p>Nossa plataforma está sendo desenvolvida para que você possa praticar suas habilidades de fala em inglês de forma confortável e segura, aumentando sua confiança na comunicação oral.</p></div><a href="https://www.landpage-preview.com/d9b81288-863e-11ee-909f-629c8ab77aa2#r8PV8nV7T17PLuTqtiMIRZwhwGig4v5E" id="Lny7ODGcao2xaOyq3Sd6olKlmmARXgcb" aria-label="Tenho interesse" class="widget widget-button" version="3" subtype="anchor" rel="noopener noreferrer">
+    <div class="widget-overlay"></div>
+    <div id="RRlP1eRybEkp9iOxXtw5XK2VhaSmNqTd" class="widget widget-text">Tenho interesse</div>
+</a><a href="https://www.landpage-preview.com/d9b81288-863e-11ee-909f-629c8ab77aa2#LtKEt3L49awfQGSrZE1aG1iqnZgCr4xw" id="Ikeakm3hg8nqRaLbvJBuvxLGpRp2I8hd" aria-label="Sobre o Linguu" class="widget widget-button" version="3" subtype="anchor" rel="noopener noreferrer">
+    <div class="widget-overlay"></div>
+    <div id="om978xLnwnLUX6q38dTTmTJ1CLvdXmb8" class="widget widget-text">Sobre o Linguu</div>
+</a><img id="tik4XZl1UU6u3hReZFt3Xrdo9kQH8nPt" width="200" height="200" data-original="https://images.assets-landingi.com/pH40A6fj/Untitled_1.svg" class="widget widget-image" src="./d9b81288-863e-11ee-909f-629c8ab77aa2_files/Untitled_1.svg" alt="" fetchpriority="high">
+
+        </div>
+    </div>
+</div>
+<div id="LmXJFnTVu8lWT8AruJvT6gR2T6o7vWTw" class="widget widget-section ">
+    <div class="row">
+        
+        <div class="container ">
+            
+            <form id="rHHTe2bU7M4g1iegr3wamubztzDDvBPB" class="widget widget-form" data-orientation="horizontal" data-version="2.1" action="https://www.landpage-preview.com/d9b81288-863e-11ee-909f-629c8ab77aa2/submit/3660bbb0b7f101ba44ce" enctype="multipart/form-data" method="post" novalidate="" data-hash="3660bbb0b7f101ba44ce"><div id="N22XD6GcpSylmPqJ8Pir19nqHqetZplD" class="widget widget-container clearfix"><label id="uLwfnvOFEOSI0kdvM9rAE6z25HMEAcBc" class="widget widget-text widget-regular-label widget-label" for="M8x3qsUF8xT8wV0oPyvuK0JbKcyOOd4h">Nome</label><input class="widget widget-input-text" id="M8x3qsUF8xT8wV0oPyvuK0JbKcyOOd4h" type="text" subtype="name" placeholder="Seu nome" parentid="rHHTe2bU7M4g1iegr3wamubztzDDvBPB" name="name" value=""></div><div id="ms2evR8blS2AXl3ha0Mg8K4VHNMBove7" class="widget widget-container clearfix"><label id="lChwunroCB5mrIK818qK1Z6BV8fhBCxq" class="widget widget-text widget-regular-label widget-label" for="lqFTTSx2t8dxTNGQXrH2wSWTUc3fXDPs">Email</label><input class="widget widget-input-text" id="lqFTTSx2t8dxTNGQXrH2wSWTUc3fXDPs" type="email" subtype="email" parentid="rHHTe2bU7M4g1iegr3wamubztzDDvBPB" placeholder="Seu e-mail" name="email" value=""></div><div id="VUJTzsOKhLJArOLplzo4AQ9cwL83tg3G" class="widget widget-container input-button-container clearfix"><button class="widget widget-input-button" type="submit" id="uMn9ShJTg6eVKNGKJvmLAoyQLK72ugun" parentid="rHHTe2bU7M4g1iegr3wamubztzDDvBPB"><div class="widget-overlay"></div>Quero participar →</button></div><input type="hidden" name="_name_" value=""><input type="hidden" name="_lead_uuid" value=""><input type="hidden" name="_uid" value="rHHTe2bU7M4g1iegr3wamubztzDDvBPB"><input type="hidden" name="_redirect" value=""></form>
+        </div>
+    </div>
+</div>
+<div id="LtKEt3L49awfQGSrZE1aG1iqnZgCr4xw" class="widget widget-section ">
+    <div class="row">
+        
+        <div class="container ">
+            
+            <div id="pOJsKicrBrnDW0LVzudS7DgN87GZtXOM" class="widget widget-text"><p>Dê um grande passo para adquirir confiança e fluência</p><p>na lingua inglesa de forma facilitada e gratuita</p></div><div id="X98RDTMJUxDTXqgMyiZPNrRpgs24toTH" class="widget widget-text"><p>Beneficios de usar a Linguu</p></div><div id="PdpxSWoyqSUMhGd0CguFC7vkygEJOhsE" class="widget widget-box"></div><div id="EhTrPftSdchP3Qh9aLkTTfiehJKRX2W8" class="widget widget-box"></div><img id="XU8SbH1Dbk2OtRUcv8ze9HVpJZ2WJvgv" width="320" height="456" class="widget widget-image ls-is-cached lazyloaded" data-original="https://images.assets-landingi.com/f2dzXdbc/Model32.png" data-src="https://images.assets-landingi.com/f2dzXdbc/Model32.png" alt="" decoding="async" src="./d9b81288-863e-11ee-909f-629c8ab77aa2_files/Model32.png">
+<div id="wNE2HqkekeenC1BcVq6n9KtbwAHof17N" class="widget widget-box"></div><div id="EAzPTX1GIlIXF6EvTARPwCkZDCF9a8TJ" class="widget widget-box"></div><div id="yzufealB5H3v9IIJUgIEpVGKfPCqD2iu" class="widget widget-box"></div><div id="B5kCyGfWmRcbTnOE33g00WCs1TDE45vO" class="widget widget-box"></div><div id="hETX5ZPi3fK8mNyDWeAeFMXgtONUHRNK" class="widget widget-text"><p>Aprenda na prática</p></div><div id="S12FnnGVWdRBbEJPmMy5ztbh2biEvOna" class="widget widget-text"><p>Conheça novas culturas</p></div><div id="IHC4SZohfammPhyahOkCQ6Gzvr8VkhAC" class="widget widget-text"><p>Fluência</p></div><div id="RSZAIg6T0uFMfIg830r7q6n6kF5gkBe5" class="widget widget-text"><p>Inglês é fundamental</p></div><div id="c8LuclMZ18GiuGTwfxGaJUTqE9zCVB6k" class="widget widget-text"><p>Ganhe confiança</p></div><div id="UmuvDX4m5Z37OmhqJaW0kB7ubClrncIW" class="widget widget-text"><p>Sobre a Linguu:</p></div><div id="U6FCgWJraTsSB6uB31nAKyTH9fvfINUe" class="widget widget-text"><p>O Linguu é seu parceiro definitivo para aperfeiçoar sua conversação em inglês. Com canais exclusivos para prática de fala, escuta, superação de inseguranças e melhora no vocabulário, oferecemos uma plataforma completa para elevar suas habilidades de comunicação.</p></div><div id="xeMdaN5REEpfaL7n0rE7m01v75U3SmHx" class="widget widget-text"><p>Prepare-se para o futuro, conquiste confiança e fale inglês com fluidez em qualquer situação. Experimente o Linguu e abra portas para um mundo globalizado.</p></div><img id="KdTfmrWVv91zMLnUCUfa3BgOMfRs4T0x" width="73" height="73" class="widget widget-image lazyloaded" data-original="https://images.assets-landingi.com/UkjF8MZw/01.svg" data-src="https://images.assets-landingi.com/UkjF8MZw/01.svg" alt="" decoding="async" src="./d9b81288-863e-11ee-909f-629c8ab77aa2_files/01.svg">
+<img id="JAvQXnrR7EeLhkHrBIhPEJyGU8k5x4R1" width="114" height="114" class="widget widget-image lazyloaded" data-original="https://images.assets-landingi.com/gfd8rbSc/02.svg" data-src="https://images.assets-landingi.com/gfd8rbSc/02.svg" alt="" decoding="async" src="./d9b81288-863e-11ee-909f-629c8ab77aa2_files/02.svg">
+<img id="cVx8CyTkuELud1CIx53wTXKJWGxc1bvP" width="105" height="105" class="widget widget-image ls-is-cached lazyloaded" data-original="https://images.assets-landingi.com/L4nv7mDn/03.svg" data-src="https://images.assets-landingi.com/L4nv7mDn/03.svg" alt="" decoding="async" src="./d9b81288-863e-11ee-909f-629c8ab77aa2_files/03.svg">
+<img id="GWspt88dVLSIGKpnkDQ5EeuFKXP803uV" width="154" height="154" class="widget widget-image ls-is-cached lazyloaded" data-original="https://images.assets-landingi.com/J9a45mL1/04.svg" data-src="https://images.assets-landingi.com/J9a45mL1/04.svg" alt="" decoding="async" src="./d9b81288-863e-11ee-909f-629c8ab77aa2_files/04.svg">
+<img id="GKh9AOPNLivTTquqzgLQt9zsGFGOmt1J" width="97" height="97" class="widget widget-image lazyloaded" data-original="https://images.assets-landingi.com/67fS9hab/05.svg" data-src="https://images.assets-landingi.com/67fS9hab/05.svg" alt="" decoding="async" src="./d9b81288-863e-11ee-909f-629c8ab77aa2_files/05.svg">
+
+        </div>
+    </div>
+</div>
+<div id="BuCFKTkHHWaT43TNb5aeZx2tV7dhnLMz" class="widget widget-section ">
+    <div class="row">
+        
+        <div class="container ">
+            
+            <div id="lddsDHWUUi0LaBU54Qd3oHcT1zuPXKKT" class="widget widget-text"><p>Apoio</p></div><div id="Q6CexnmwT8ZlMXNOynSFpO3aAqil75VT" class="widget widget-text"><p>Somos estudantes da Universidade Federal de Minas Gerais</p><p>e sabemos o quão essencial e fundamental é o inglês, por isso,</p><p>queremos te ajudar tanto com nossa plataforma e nossa experiência</p></div><img id="QqkRImofUnDdmagxQTLTNp6dcr1BRsqH" width="148" height="148" data-original="https://images.assets-landingi.com/uc/f2c1e508-276a-45ea-b3a5-3eb561cba5b4/UFMGlogo7B1478CE80seeklogocom.png" class="widget widget-image" alt="" decoding="async" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=">
+
+        </div>
+    </div>
+</div>
+<div id="MAgo5mdtDZWQLTgbe4QkrQ7GTXUFfOHi" class="widget widget-section ">
+    <div class="row">
+        
+        <div class="container ">
+            
+            <div id="PReg98OfHIyrTyE8AcURzo6IG4OF9iqc" class="widget widget-text"><p>FAQ</p></div><div id="Tda4VVXq2UvD8SGhfFT0DmpbpXB2xp2h" class="widget widget-box"></div><div id="qalPTqPm29T51TKTwv1QgUUTfZuK8TLX" class="widget widget-text"><p>Quem somos?</p></div><div id="wGQhZfxoPWZdE8L6LaS1KsrpTNaTXXtQ" class="widget widget-text"><p>Somos uma plataforma com o objetivo de democratizar a fluência em inglês! Queremos que mais brasileiros estejam aptos a comunicar fluentemente na lingua inglesa.</p></div><div id="qlhNuZXZ0OrtMHQh6ALpNwTHO80Da25A" class="widget widget-box adaptive-delivery-prevent-bg"></div><div id="Mlny41FL7yxefJ28dNBVFtIxu3CVOECF" class="widget widget-text"><p>Quanto custa?</p></div><div id="Cc5CGIsPQBHgFxE2P5CcpSJdtVebBXZ0" class="widget widget-box"></div><div id="xd9BafIEMgz6lawBeWPkZhHh0yKoAV43" class="widget widget-text"><p>É totalmente gratuito! Não iremos te cobrar nenhum centavo para acessar a nossa plataforma!</p></div><div id="A5yCweww2BG2vGZtEKhHTC7EIzCf1ctg" class="widget widget-text"><p>Já posso acessar?</p></div><div id="rPLw6ByHwIXID1waaRvdXRDGQOqgXTc1" class="widget widget-box"></div><div id="rqwp9bKtOfTcBrJEQMSisIdxAfD1d1P2" class="widget widget-text"><p>Por enquanto, a plataforma está em desenvolvimento, mas iremos te avisar assim que estiver pronto, basta se informar seu nome e email ao clicar no botão abaixo!<br></p></div><a href="https://www.landpage-preview.com/d9b81288-863e-11ee-909f-629c8ab77aa2#r8PV8nV7T17PLuTqtiMIRZwhwGig4v5E" id="rXtv3IyN9OvhZQQIiUCgbrs6IJqdeUfc" aria-label="Quero me inscrever!" class="widget widget-button" version="3" subtype="anchor" rel="noopener noreferrer">
+    <div class="widget-overlay"></div>
+    <div id="NBvsKTqftkNEntsn0ADpbmBzI1zg3Vfo" class="widget widget-text">Quero me inscrever!</div>
+</a>
+        </div>
+    </div>
+</div>
+<div id="QpBgZZPEGTC7WHT5CLTToX1uvqOOmTBt" class="widget widget-section ">
+    <div class="row">
+        
+        <div class="container ">
+            
+            <div id="a347puRBrR9m5spRkhXU9qLE7Lb02BTU" class="widget widget-text"><p>Inglês, o ponto foco do mundo</p></div><div id="Ohx1kk0iprXhKTLCBEkSiHCx57eTcqu1" class="widget widget-text"><p> Não deixe a procastinação te impedir de aprender a língua número 1 do mundo!</p></div>
+        </div>
+    </div>
+</div>
+<div id="QxsTSJwXUg1eSm1CUPkdBHMZGIw7ViEv" class="widget widget-section ">
+    <div class="row">
+        
+        <div class="container ">
+            
+            <div id="rkwCVT8TTIfHnPEQJI5ssTlGUyr7a0AO" class="widget widget-box"></div><div id="eZNOo2QcAe8SKqLEuolrcCsALtBE30ND" class="widget widget-box adaptive-delivery-prevent-bg"></div><div id="T9wu0UyIs5UsNHFTApA7OO3fBQJldst9" class="widget widget-text"><p>Apenas 5% dos brasileiros têm conhecimento do idioma inglês, e desses, apenas 1% possui fluência no idioma</p></div><div id="Htbq3lcKliTaD7uZ86IRX0bHQ9XNk1lx" class="widget widget-text"><p>British Council</p></div><div id="z9Je8k3im5rp6DZyQz6fr33gMGr06l4E" class="widget widget-box"></div><div id="hmF9RbmVO3TCBJeWxMmuvLvn9wntM7hn" class="widget widget-text"><p>Cerca de 40% das pessoas que estabeleceram metas para 2021, sinalizaram o desejo em aprender inglês</p></div><div id="J969Levu8e7Vcnxcpmm8XrweFhTyOsqB" class="widget widget-text"><p>7Waves</p></div><div id="uctHwwc5Lpk3vo1rUhy0PfM8fKqBHVTy" class="widget widget-box lazyload"></div><div id="IsWzBoxJgGVOVZZ7APHBg5RhVovmZ0BF" class="widget widget-box"></div><div id="eIwTQTrx6gLfKeVTWosgN4UzMs0M5wWo" class="widget widget-text"><p>Testes de proficiência são necessários para ingressar em faculdades no exterior, como IELTS e TOEFL, e é feito a análise na fala também</p></div><div id="V20LwI0ML3suaQTRLRSFHJi7IUtqTvnI" class="widget widget-text"><p>IELTS e TOEFL</p></div><div id="dXBR6rwcx6qm832QlQLq59qZOO2ycILo" class="widget widget-box adaptive-delivery-prevent-bg"></div>
+        </div>
+    </div>
+</div>
+<div id="r8PV8nV7T17PLuTqtiMIRZwhwGig4v5E" class="widget widget-section lazyload">
+    <div class="row">
+        
+        <div class="container lazyload">
+            
+            <form id="PHWQMRKExKLfxkmpqPkum2u5HHkcCsXX" class="widget widget-form" data-orientation="horizontal" data-version="2.1" action="https://www.landpage-preview.com/d9b81288-863e-11ee-909f-629c8ab77aa2/submit/3660bbb0b7f101ba44ce" enctype="multipart/form-data" method="post" novalidate="" data-hash="3660bbb0b7f101ba44ce"><div id="ZrtTz3w1HLPvmQN8BfM5IffHxGrgxtih" class="widget widget-container clearfix"><label id="hD0mnonyLMcydLLscNRy9DPq0VWiy35u" class="widget widget-text widget-regular-label widget-label" for="RDnxOkaw87nR00h8izxTIf6vz39AbCRB">Nome</label><input class="widget widget-input-text" id="RDnxOkaw87nR00h8izxTIf6vz39AbCRB" type="text" subtype="name" placeholder="Seu nome" parentid="PHWQMRKExKLfxkmpqPkum2u5HHkcCsXX" name="name" value=""></div><div id="bMTBIRvJI7NDL29Zm4vC09uktQziIRTT" class="widget widget-container clearfix"><label id="CnbRwrXWT2Ck3rFlNWV2g0Zv69BPFB87" class="widget widget-text widget-regular-label widget-label" for="PPhR0VU12qtQx2fTzVzsnRHuFK0Taa32">Email</label><input class="widget widget-input-text" id="PPhR0VU12qtQx2fTzVzsnRHuFK0Taa32" type="email" subtype="email" parentid="PHWQMRKExKLfxkmpqPkum2u5HHkcCsXX" placeholder="Seu e-mail" name="email" value=""></div><div id="K7lA6A6UpxqaLrBifKv7nBbC8tkTEQZc" class="widget widget-container input-button-container clearfix"><button class="widget widget-input-button" type="submit" id="kSUmLbCiKE03d9BQMV36w2RNBJMZIwBK" parentid="PHWQMRKExKLfxkmpqPkum2u5HHkcCsXX"><div class="widget-overlay"></div>Quero participar agora   →</button></div><input type="hidden" name="_name_" value=""><input type="hidden" name="_lead_uuid" value=""><input type="hidden" name="_uid" value="PHWQMRKExKLfxkmpqPkum2u5HHkcCsXX"><input type="hidden" name="_redirect" value=""></form><div id="Z6uOz6iHBzc1GUSIQsI8OfehBHoU8Rgx" class="widget widget-text"><p>Não perca a chance de adquirir sua fluência</p></div><div id="bNmHJHcBVwMXW7Lyh9wcRkXKDyJpNyrG" class="widget widget-text"><p> Estamos aqui para te apoiar nesta jornada!</p></div>
+        </div>
+    </div>
+</div><script type="text/javascript" src="./d9b81288-863e-11ee-909f-629c8ab77aa2_files/jquery-3-6-0.min.js.transferir" fetchpriority="high"></script><script async="" type="text/javascript" src="./d9b81288-863e-11ee-909f-629c8ab77aa2_files/landend.bootstrap.min.js.transferir"></script><script async="" type="text/javascript" src="./d9b81288-863e-11ee-909f-629c8ab77aa2_files/webview.1.0.2.js.transferir"></script><script type="text/javascript" src="./d9b81288-863e-11ee-909f-629c8ab77aa2_files/landend.js.transferir"></script><script defer="" type="text/javascript" src="./d9b81288-863e-11ee-909f-629c8ab77aa2_files/v02.js.transferir"></script>        <script src="./d9b81288-863e-11ee-909f-629c8ab77aa2_files/frodo.js.transferir"></script>
+<script>
+const lpStatsModule = (function () {    
+    const url = "https://stats.landingi.com/visit/1583695";
+    const data = {"lid":1583695,"luuid":"d9b671bc-863e-11ee-8204-629c8ab77aa2","lhash":"3660bbb0b7f101ba44ce","fid":1583695,"auuid":"76bec700-85d8-11ee-a295-5e48a9c8420d","acid":300959,"agid":null,"tid":null,"hasAccessToEventTracker":false,"hasAccessToEventTrackerDev":false,"hasAccessToEventTrackerData":false};
+    const cookieName = "ls_sid_1583695";
+
+    if (data.hasAccessToEventTrackerDev) { 
+        console.log('Running runScript in dev mode')
+        frodo.runScriptDev(cookieName, url, data)
+    } else {
+        frodo.runScript(cookieName, url, data)
+    }
+
+    return {
+        getData: function() { return data; },
+        cookieName: function() { return cookieName; },
+        endpoint: function() { return url; },
+        path: function() { return path; }
+    };
+})();
+</script><script defer="" type="text/javascript" src="./d9b81288-863e-11ee-909f-629c8ab77aa2_files/files.js.transferir"></script><script defer="" fetchpriority="low" type="text/javascript" src="./d9b81288-863e-11ee-909f-629c8ab77aa2_files/jquery.form.min.js.transferir"></script> <script type="text/javascript" src="./d9b81288-863e-11ee-909f-629c8ab77aa2_files/landend.min.js.transferir"></script><script defer="" fetchpriority="low" type="text/javascript" src="./d9b81288-863e-11ee-909f-629c8ab77aa2_files/validation.js.transferir"></script><div><div class="grecaptcha-badge" data-style="bottomright" style="width: 256px; height: 60px; display: block; transition: right 0.3s ease 0s; position: fixed; bottom: 14px; right: -186px; box-shadow: gray 0px 0px 5px; border-radius: 2px; overflow: hidden;"><div class="grecaptcha-logo"><iframe title="reCAPTCHA" width="256" height="60" role="presentation" name="a-a6c8tsu3611k" frameborder="0" scrolling="no" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox allow-storage-access-by-user-activation" src="./d9b81288-863e-11ee-909f-629c8ab77aa2_files/anchor.html"></iframe></div><div class="grecaptcha-error"></div><textarea id="g-recaptcha-response-100000" name="g-recaptcha-response" class="g-recaptcha-response" style="width: 250px; height: 40px; border: 1px solid rgb(193, 193, 193); margin: 10px 25px; padding: 0px; resize: none; display: none;"></textarea></div><iframe style="display: none;" src="./d9b81288-863e-11ee-909f-629c8ab77aa2_files/saved_resource(1).html"></iframe></div></body></html>
